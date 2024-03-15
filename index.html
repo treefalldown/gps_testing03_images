@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AR.js A-Frame Location-based</title>
+        <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+        <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
+        <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
+    </head>
+    <body>
+        <a-scene vr-mode-ui='enabled: false'
+                 arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'
+                 renderer='antialias: true; alpha: true'>
+
+            <!--            <a-assets timeout="10000">-->
+            <a-assets>
+                <img id="Coles_Entrance" src="assets/Coles_Entrance.jpg">
+                <img id="Coles_Rear" src="assets/Coles_Rear.jpg">
+
+                <!--
+<a-asset-item id="tree-obj" src="assets/scans_3D/textured.obj"></a-asset-item>
+<a-asset-item id="tree-mtl" src="assets/scans_3D/textured.mtl"> </a-asset-item>
+-->
+            </a-assets>
+
+
+            <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
+            <a-entity material='color: red'
+                      geometry='primitive: box'
+                      gps-new-entity-place="latitude: 42.925055; longitude: -78.847369"
+                      scale="30 30 30">
+            </a-entity>
+
+<!--            Entrance GPS: 42.925262364731836, -78.84714808465061-->
+            <a-image src="#Coles_Entrance"
+                     gps-new-entity-place="latitude: 42.925262364731836; longitude: -78.84714808465061"
+                     scale="10 10 10">                
+            </a-image>
+
+<!--            Rear GPS: 42.92504188320984, -78.84744693310255-->
+            <a-image src="#Coles_Rear"
+                     gps-new-entity-place="latitude: 42.92504188320984; longitude: -78.84744693310255"
+                     scale="10 10 10">
+            </a-image>
+        </a-scene>
+    </body>
+</html>
